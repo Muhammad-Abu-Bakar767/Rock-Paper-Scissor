@@ -163,13 +163,11 @@ function winSound(){
 
 function loseSound(){
 
-  let audio = new Audio("Audio/lose.mp3")
   loseAudio.play();
 }
 
 
 function drawSound() {
  
-  let audio = new Audio("Audio/draw.wav");
   drawAudio.play();
 }
