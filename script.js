@@ -70,13 +70,9 @@ function computerMove() {
  
   let computerChoice = Math.floor(Math.random() * 3) + 1;
 
-  if (computerChoice == 1) {
-    return "rock";
-  } else if (computerChoice == 2) {
-    return "paper";
-  } else if (computerChoice == 3) {
-    return "scissor";
-  }
+  let options = ["rock", "paper", "scissor"];
+
+  return options[computerChoice - 1];
 }
 
 
@@ -126,9 +122,12 @@ function resultMessage(result, computerChoice){
 function win(Message, computerChoice){
 
   Message.innerText = `You won, computer choose ${computerChoice}`;
+
   Message.classList.add("won");
   Message.classList.remove("lose");
   Message.classList.remove("draw");
+
+  winSound();
 }
 
 function lose(Message, computerChoice){
@@ -137,6 +136,8 @@ function lose(Message, computerChoice){
   Message.classList.add("lose");
   Message.classList.remove("won");
   Message.classList.remove("draw");
+
+  loseSound();
 }
 
 function draw(Message, computerChoice){
@@ -145,4 +146,29 @@ function draw(Message, computerChoice){
   Message.classList.add("draw");
   Message.classList.remove("won");
   Message.classList.remove("lose");
+
+  drawSound();
+}
+
+
+// sound effects
+
+
+function winSound(){
+
+  let audio = new Audio("Audio/win.wav");
+  audio.play();
+}
+
+function loseSound(){
+
+  let audio = new Audio("Audio/lose.mp3")
+  audio.play();
+}
+
+
+function drawSound() {
+ 
+  let audio = new Audio("Audio/draw.wav");
+  audio.play();
 }
